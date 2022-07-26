@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+   xsi:schemaLocation="http://www.springframework.org/schema/beans
+                       http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	
+	<bean id="test1" class="co.bm.pro.beans.Test" />
+	
+	<bean id="test2" class="co.bm.pro.beans.Test" lazy-init="true" >
+		<constructor-arg value="10" type="int" />
+	</bean>
+	<bean id="test3" class="co.bm.pro.beans.Test" lazy-init="true" >
+		<constructor-arg value="4.25" type="double" />
+	</bean>
+	<bean id="test4" class="co.bm.pro.beans.Test" lazy-init="true" >
+		<constructor-arg value="test value string" type="String" />
+	</bean>
+	
+	<bean id="tConst" class="co.bm.pro.beans.Test" lazy-init="true" >
+		<constructor-arg value="92" type="int" />
+		<constructor-arg value="12.66" type="double" />
+		<constructor-arg value="test 전체 값 입력" type="java.lang.String" />
+	</bean>
+	
+	
+	<!-- 객체 주입 1. -->
+	<bean id="test2_1" class="co.bm.pro.beans.Test2" lazy-init="true" >
+		<constructor-arg >
+			<bean class="co.bm.pro.beans.Data" />
+		</constructor-arg>	
+		<constructor-arg >
+			<bean class="co.bm.pro.beans.Data" />
+		</constructor-arg>	
+	</bean>
+	
+	<!-- 객체 주입 2. 
+		 Test2 안에 Data d1, d2가 파라미터로 들어가 있음 
+		 ref = 주소값 참조 -->
+	<bean id="test2_2" class="co.bm.pro.beans.Data" scope="prototype" />
+	<bean id="test2_3" class="co.bm.pro.beans.Test2" lazy-init="true">
+		<constructor-arg ref="test2_2" />
+		<constructor-arg ref="test2_2" />
+	</bean>
+		
+
+
+</beans>
