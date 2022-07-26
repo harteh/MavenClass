@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+   xsi:schemaLocation="http://www.springframework.org/schema/beans
+                       http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<bean id="test" class="co.bm.beans.Test"/>
+	<bean id="test2" class="co.bm.beans.Test" lazy-init="true"/>
+	
+	<bean id="test3" class="co.bm.beans.Test" lazy-init="true"	scope="prototype"/>
+	
+	<!-- lazy-init="true" scope="prototype" 일 경우 객체 생성시점이 xml 로딩될 때가 아닌 getBeans() 호출 시 생성된다 -->
+	
+	
+</beans>
