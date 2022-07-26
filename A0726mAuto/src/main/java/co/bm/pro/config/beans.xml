@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+   xsi:schemaLocation="http://www.springframework.org/schema/beans
+                       http://www.springframework.org/schema/beans/spring-beans.xsd"
+   default-autowire="byName">
+<!-- default-autowire="byName" -->
+
+
+	<!-- setter 통한 주입 -->
+	<bean id="t1" class="co.bm.pro.beans.Test">
+		<property name="d1" ref="dd" />
+		<property name="d2" ref="dd" />
+	</bean>
+	<bean id="dd" class="co.bm.pro.beans.Data" scope="prototype" />
+	
+	
+	<!-- 자동 주입    autowire
+		  : 어떠한 기준으로 자동 주입을 할 것인지 정해져 있다
+		    1. 이름이 같을때 : autowire="byName"
+		    2. 타입이 같을때
+	-->
+	<bean id="t2" class="co.bm.pro.beans.Test" autowire="byName" />
+	<bean id="d1" class="co.bm.pro.beans.Data" />
+	<bean id="d2" class="co.bm.pro.beans.Data" />
+	
+	<bean id="t3" class="co.bm.pro.beans.Test2" autowire="byType" />
+	
+	<bean id="ddd" class="co.bm.pro.beans.Data2" />
+	
+	<!-- 생성자를 통한 자동 주입 -->
+	<bean id="t4" class="co.bm.pro.beans.Test3" autowire="constructor" />
+	<bean id="t5" class="co.bm.pro.beans.Test3">
+		<constructor-arg value="34" index="0" type="int" />
+		<constructor-arg value="test3의 d2" index="1" />
+		<constructor-arg ref="ddd" index="2" />
+		<constructor-arg ref="ddd" index="3" />
+	</bean>   
+
+	<!--  autowire="constructor" 생략해도 동일한 결과가 나온다 -->
+	<bean  id="t6" class="co.bm.pro.beans.Test3" autowire="constructor" >
+		<constructor-arg ref="ddd" index="0" />
+		<constructor-arg ref="ddd" index="1"/>
+	</bean>
+	
+	
+	<bean  id="t7" class="co.bm.pro.beans.Test3" autowire="constructor" >
+		<constructor-arg value="54" index="0" type="int" />
+		<constructor-arg value="호호호" index="1"/>
+	</bean>
+	
+	<bean id="t8" class="co.bm.pro.beans.Test" />
+	
+	<bean  id="t9" class="co.bm.pro.beans.Test" autowire="no" />
+	
+	
+
+</beans>

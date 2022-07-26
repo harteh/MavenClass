@@ -4,7 +4,17 @@
    xsi:schemaLocation="http://www.springframework.org/schema/beans
                        http://www.springframework.org/schema/beans/spring-beans.xsd">
 
-	
+	<!-- set 메서드 이용한 주입 : property -->
+	<bean id="t1" class="co.bm.pro.beans.Test">
+		<property name="d1" value="15" />
+		<property name="d2" value="true" />
+		<property name="d3" value="set 메서드 주입" />
+		<property name="d4">
+			<bean class="co.bm.pro.beans.Data" />
+		</property>
+		<property name="d5" ref="dd" />
+	</bean>
+	<bean id="dd" class="co.bm.pro.beans.Data" scope="prototype" />
 
 		
 
