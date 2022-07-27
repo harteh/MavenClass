@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+   xsi:schemaLocation="http://www.springframework.org/schema/beans
+                       http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+
+	<!-- 객체가 xml 파일이 로딩될때 생성된다 -->
+	<bean id="a1" class="co.bm.mj.beans.Test"  />
+
+	<bean id="a2" class="co.bm.mj.beans.Test2" lazy-init="true" />
+	<bean id="a3" class="co.bm.mj.beans.Test3" scope="prototype" />
+	
+	
+                       
+</beans>
