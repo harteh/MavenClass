@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+   xsi:schemaLocation="http://www.springframework.org/schema/beans
+                       http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+
+	<!-- Data 정의 -->
+	<bean id="dd" class="co.bm.mj.beans.Data" />
+
+	<!-- Test 클래스에다 필드에 맞게끔 임의의 값을 주입시킨다. (생성자주입) -->
+	<bean id="a1" class="co.bm.mj.beans.Test">
+		<constructor-arg value="12" type="int" index="0" />
+		<constructor-arg value="Test a1 문자열" index="1" />
+		<constructor-arg ref="dd" index="2" />
+	</bean>
+	
+	
+                       
+</beans>
