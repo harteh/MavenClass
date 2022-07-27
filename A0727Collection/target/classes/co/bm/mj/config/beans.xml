@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+   xsi:schemaLocation="http://www.springframework.org/schema/beans
+                       http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+
+	<!-- 컬렉션 주입 Injecting Collection -->
+	<!-- List<String> l1 -->
+	<bean id="t1" class="co.bm.mj.beans.Test">
+		<property name="l1">
+			<list>
+				<value>문자1</value>
+				<value>문자2</value>
+				<value>문자3</value>
+			</list>
+		</property>
+		
+	<!-- List<Data> l2 : 객체 4개 주입 -->
+		<property name="l2">
+			<list>
+				<bean class="co.bm.mj.beans.Data"/>
+				<bean class="co.bm.mj.beans.Data"/>
+				<ref bean="dd"/>
+				<ref bean="dd"/>
+			</list>
+		</property>
+		
+	<!-- Set<String> s1 -->
+		<property name="s1">
+			<set>
+				<value>문자1</value>
+				<value>문자1</value>
+				<value>문자1</value>
+				<value>문자2</value>
+			</set>
+		</property>
+		
+	<!-- Set<Data> s2 -->
+		<property name="s2">
+			<set>
+				<bean class="co.bm.mj.beans.Data"/>
+				<bean class="co.bm.mj.beans.Data"/>
+				<ref bean="dd" />
+				<ref bean="dd" />
+			</set>
+		</property>
+		
+	<!-- Map<String, Object> m1 -->
+		<property name="m1">
+			<map>
+				<entry key="a1" value="m1의 문자" />
+				<entry key="a2">
+					<bean class="co.bm.mj.beans.Data" />
+				</entry>
+				<entry key="a3" value-ref="dd" />
+				<entry key="a4">
+					<list>
+						<value>문자1</value>
+						<value>문자2</value>
+					</list>
+				</entry>
+			</map>
+		</property>
+	
+	</bean>
+
+	<!-- Data class 
+	 scope="prototype" -> 호출될때마다 객체가 생성된다 -->
+	<bean id="dd" class="co.bm.mj.beans.Data" scope="prototype" />
+	<!-- xml 파일 로딩될때 한번만 생성된다
+	<bean id="dd" class="co.bm.mj.beans.Data"  />  -->
+	
+	
+	
+                       
+</beans>
