@@ -5,8 +5,6 @@
                        http://www.springframework.org/schema/beans/spring-beans.xsd">
 
 
-	<!-- Data 정의 -->
-	<bean id="dd" class="co.bm.mj.beans.Data" />
 
 	<!-- Test 클래스에다 필드에 맞게끔 임의의 값을 주입시킨다. (생성자주입) -->
 	<bean id="a1" class="co.bm.mj.beans.Test">
@@ -15,6 +13,27 @@
 		<constructor-arg ref="dd" index="2" />
 	</bean>
 	
+	<!-- setter  -->
+	<!-- 상단에 매개변수가 있는 생성자가 있기 때문에, 기본생성자가 있어야지 아래가 호출된다  -->
+	<bean id="a2" class="co.bm.mj.beans.Test">
+		<property name="d1" value="23" />
+		<property name="d2" value="setter 수정주입" />
+		<property name="d3" ref="dd" />
+	</bean>
 	
+	<!-- Data 정의 -->
+	<bean id="dd" class="co.bm.mj.beans.Data" />
+	
+	<!-- Test2에 Data2 자동 주입 -->
+	<bean id="a3" class="co.bm.mj.beans.Test2" autowire="byName" />
+	<bean id="d1" class="co.bm.mj.beans.Data2" />
+	<bean id="d2" class="co.bm.mj.beans.Data2" />
                        
+	<!-- Test3에 Data3 자동 주입 scope="prototype"이 있으면 각자 다른 객체가 생성, 주입된다 -->
+	<bean id="ddd" class="co.bm.mj.beans.Data3" scope="prototype" />  
+	<bean id="a4" class="co.bm.mj.beans.Test3" autowire="byType" />
+	
+	
+	
+	
 </beans>

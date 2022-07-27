@@ -6,6 +6,8 @@ public class Test {
 	private String d2;
 	private Data d3;
 	
+	public Test() {}
+	
 	public Test(int d1, String d2, Data d3) {
 		this.d1=d1;	this.d2=d2;	this.d3=d3;
 	}

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd" 
+	xmlns:context="http://www.springframework.org/schema/context" 
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+	xmlns="http://www.springframework.org/schema/beans">
+
+
+<context:annotation-config />
+	<!-- 데이터 클래스 정의 -->
+	<bean id="dd" class="co.bm.mj.beans.Data" />
+	
+	
+	<!-- 데이터 타입으로 자동 주입 = 이름으로 구별하기 때문에 동이하게 설정 -->
+	<bean id="q4" class="co.bm.mj.beans.Data2" />
+	<bean id="q5" class="co.bm.mj.beans.Data2" />
+	
+	<bean id="a1" class="co.bm.mj.beans.Test" >
+		<property  name="d1" value="23" />
+		<!--  <property  name="d2" ref="dd" />  -->
+	</bean>
+
+
+	<!-- Test2 -->
+	<bean id="a2" class="co.bm.mj.beans.Test2" />
+	<bean class="co.bm.mj.beans.Data3" />
+	<bean class="co.bm.mj.beans.Data4" />
+
+	
+	
+	
+	
+</beans>
