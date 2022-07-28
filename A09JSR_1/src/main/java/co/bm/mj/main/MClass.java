@@ -28,6 +28,18 @@ public class MClass {
 		Test3 t3 = ctx2.getBean("t3", Test3.class);
 		System.out.println( t3.getD1() +" / "+ t3.getD2() ); 
 		
+		System.out.println("========== t4 : @Autowired  @Qualifier(\"d2\") ===========");
+		Test4 t4 = ctx2.getBean("t4", Test4.class);
+		System.out.println( t4.getD1() +" / "+ t4.getD2() ); 
+		
+		System.out.println("========== t5 : @Resource : 이름기준 ===========");
+		Test5 t5 = ctx2.getBean("t5", Test5.class);
+		System.out.println( t5.getD1() +" / "+ t5.getD2() ); 
+		
+		System.out.println("========== t6 : @Resource(name=\"d1\") ===========");
+		Test6 t6 = ctx2.getBean("t6", Test6.class);
+		System.out.println( t6.getDd() +" / "+ t6.getDd2() ); 
+		
 
 		
 		

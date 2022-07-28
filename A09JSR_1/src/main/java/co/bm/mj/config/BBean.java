@@ -37,4 +37,24 @@ public class BBean {
 		return new Test3();
 	}
 	
+	@Bean
+	@Lazy
+	public Test4 t4() {
+		return new Test4();
+	}
+	
+	@Bean
+	@Lazy
+	public Test5 t5() {
+		return new Test5();
+	}
+	
+	@Bean
+	@Lazy
+	public Test6 t6() {
+		return new Test6();
+	}
+	
+	
+	
 }
