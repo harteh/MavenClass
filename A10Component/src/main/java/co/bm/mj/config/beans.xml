@@ -7,9 +7,16 @@
 <!-- 
 	<context:annotation-config />
  -->
-	<!-- 데이터 클래스 정의 -->
+ 	<context:component-scan base-package="co.bm.mj.beans2" />
+ 	<context:component-scan base-package="co.bm.mj.beans3" />
+ 
+	<!-- 비어있는 Test 클래스 정의 -->
+	<bean class="co.bm.mj.beans.Test" />
+	<bean id="a2" class="co.bm.mj.beans.Test2" />
+	<bean id="a3" class="co.bm.mj.beans.Test2" />
 	
-
+	<!-- 동일한 타입으로 여러개 줄떄 -->
+	<bean class="co.bm.mj.beans2.Test4" id="a4" />
 	
 	
 	
