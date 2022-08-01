@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd" 
+xmlns:aop="http://www.springframework.org/schema/aop" 
+xmlns:context="http://www.springframework.org/schema/context" 
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+xmlns="http://www.springframework.org/schema/beans">
+
+
+<bean class="co.jw.sol.beans.Test" id="a1"/>
+<bean class="co.jw.sol.beans.Test2" id="a2"/>
+<bean class="co.jw.sol.advisor.Ad" id="ad"/>
+<bean class="co.jw.sol.beans2.Test" id="a3"/>
+
+<aop:config>
+	<aop:aspect ref="ad">
+		<!-- <aop:pointcut expression="execution(void co.jw.sol.beans.Test.m1())" id="p1"/>-->
+		<!--<aop:pointcut expression="execution(void co.jw.sol.beans.Test.m1(int))" id="p1"/>-->
+		<!--<aop:pointcut expression="execution(void co.jw.sol.beans.Test.m1(*))" id="p1"/> -->
+		<!--<aop:pointcut expression="execution(void co.jw.sol.beans.Test.m1(*,*))" id="p1"/>-->
+		<!--<aop:pointcut expression="execution(void co.jw.sol.beans.Test.m1(..))" id="p1"/>-->
+		
+		<!--<aop:pointcut expression="execution(void co.jw.sol.beans.Test.*(..))" id="p1"/>-->
+		<!--<aop:pointcut expression="execution(void co.jw.sol.beans.*.m1(..))" id="p1"/>-->
+		 
+		<!--<aop:pointcut expression="execution(void co.jw.sol.*.*.*(..))" id="p1"/>-->
+		 
+		 <!-- 반환타입이 int, 모든 패키지, 모든 클래스 , 모든 메소드 -->
+		 
+		<!-- <aop:pointcut expression="execution(int co.jw.sol.*.*.*(..))" id="p1"/> -->
+		<!--<aop:pointcut expression="execution(int *.*(..))" id="p1"/> -->
+		
+		 <!-- 모든 반환타입, 모든 패키지, 모든 클래스, 모든 메솓, -->
+		<!-- <aop:pointcut expression="execution(* *.*(..))" id="p1"/>-->
+		<!-- <aop:pointcut expression="execution(* m1(..))" id="p1"/>-->
+		 
+		 <!-- 반환타입이 void, 모든 패키지의 모든클래스, 모든 메소드 -->
+		 <aop:pointcut expression="execution(void co.jw.sol.*)" id="p1"/>
+		 <aop:pointcut expression="execution(void *.*(..))" id=""/>
+		 
+		 
+		 <aop:before method="before_me" pointcut-ref="p1"/> 
+		
+		<!-- 반환타입이 void, co.jw.sol.의 모든 패키지의 모든클랫, 모든 메소드 -->
+		
+		
+
+	
+		
+	</aop:aspect>
+
+</aop:config>
+
+
+
+</beans>
+
+
+
+
+
+
+

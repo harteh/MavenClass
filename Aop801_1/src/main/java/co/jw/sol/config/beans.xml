@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd" 
+		xmlns:aop="http://www.springframework.org/schema/aop" 
+		xmlns:context="http://www.springframework.org/schema/context" 
+		xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+		xmlns="http://www.springframework.org/schema/beans">
+
+	<!-- @ComponentScan(basePackages = {"co.jw.sol.beans", "co.jw.sol.advisor"}) -->
+	<context:component-scan base-package="co.jw.sol.beans" />
+	<context:component-scan base-package="co.jw.sol.advisor" />
+	
+	<!-- @EnableAspectJAutoProxy -->
+	<aop:aspectj-autoproxy />
+	<!-- 위는 ConfigClass.java 와 동일한 작동을 한다. java와 xml 하나만 해도 됨 -->
+
+
+
+
+</beans>
+
+
+
+
+
+
+
